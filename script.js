@@ -2,18 +2,26 @@ const clueHoldTime = 1000; //how long to hold each clue's light/sound
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback of the clue sequence
 
-var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
+var pattern=[];
 var progress = 0; 
 var gamePlaying = false;
 var tonePlaying = false;
 var volume = 1;
 var guessCounter = 0;
+var slider = document.getElementById("rounds");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
 
+function slide() {
+  var x = document.getElementById("rounds").value;
+  document.getElementById("demo").innerHTML = "Rounds: " + x;
+}
 function startGame(){
     progress = 0;
     gamePlaying = true;
     document.getElementById("startBtn").classList.add("hidden");
     document.getElementById("stopBtn").classList.remove("hidden");
+    makePattern();
     playClueSequence();
 }
 function stopGame(){
@@ -21,6 +29,16 @@ function stopGame(){
     gamePlaying = true;
     document.getElementById("startBtn").classList.remove("hidden");
     document.getElementById("stopBtn").classList.add("hidden");
+}
+
+function makePattern(){
+    var num = document.getElementById("rounds").value;
+    var temp = 0;
+    console.log("slider is: " + num);
+    for(let i=0;i<num;i++){
+      temp=Math.floor(Math.random() * 4)+1;
+      pattern[i]=temp;
+    }
 }
 
 const freqMap = {
