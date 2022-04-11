@@ -1,6 +1,6 @@
-const clueHoldTime = 1000; //how long to hold each clue's light/sound
 const cluePauseTime = 333; //how long to pause in between clues
 const nextClueWaitTime = 1000; //how long to wait before starting playback of the clue sequence
+const clueHoldTime = 1000; //how long to hold each clue's light/sound
 
 var pattern=[];
 var progress = 0; 
@@ -8,6 +8,7 @@ var gamePlaying = false;
 var tonePlaying = false;
 var volume = 1;
 var guessCounter = 0;
+var mistakes = 0;
 var slider = document.getElementById("rounds");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value; // Display the default slider value
@@ -111,10 +112,18 @@ function playClueSequence(){
 function loseGame(){
   stopGame();
   alert("Game Over. Try Again.");
+  mistakes=0;
+  document.getElementById("c1").classList.add("hidden");
+  document.getElementById("c2").classList.add("hidden");
+  document.getElementById("c3").classList.add("hidden");
 }
 function winGame(){
   stopGame();
   alert("Congrats! You Win!");
+  mistakes=0;
+  document.getElementById("c1").classList.add("hidden");
+  document.getElementById("c2").classList.add("hidden");
+  document.getElementById("c3").classList.add("hidden");
 }
 
 function guess(btn){
@@ -122,8 +131,34 @@ function guess(btn){
   if(!gamePlaying){
     return;
   }
-  if(pattern[guessCounter] != btn)
+  if(pattern[guessCounter] != btn && mistakes==2){
+    document.getElementById("c3").classList.remove("hidden");
     loseGame();
+  }
+  else if(pattern[guessCounter] != btn && mistakes==1){
+    document.getElementById("c2").classList.remove("hidden");
+    mistakes++;
+    if(guessCounter != progress )
+      guessCounter++;
+    else if(progress==pattern.length-1)
+      winGame();
+    else{
+      progress++;
+      playClueSequence();
+    }
+  }
+  else if(pattern[guessCounter] != btn && mistakes==0){
+    document.getElementById("c1").classList.remove("hidden");
+    mistakes++;
+    if(guessCounter != progress )
+      guessCounter++;
+    else if(progress==pattern.length-1)
+      winGame();
+    else{
+      progress++;
+      playClueSequence();
+    }
+  }
   else if(guessCounter != progress )
     guessCounter++;
   else if(progress==pattern.length-1)
