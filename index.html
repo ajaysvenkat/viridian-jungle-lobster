@@ -24,13 +24,15 @@
       All you need to do is repeat the pattern you hear by pressing the 
       buttons. It's simple!
     </p>
+
     <l id= "c1" class="hidden">❌</l>
     <l id= "c2" class="hidden">❌</l>
     <l id= "c3" class="hidden">❌</l>
     
+    <h2 id="time"></h2>
     
     <div class="slidecontainer" >
-      <p id="demo"></p>
+      <p id="demo">Rounds: 9</p> 
       <input type="range" min="3" max="15" value="9" class="slider" id="rounds" onchange="slide()">
     </div>
     <br>
@@ -47,6 +49,7 @@
       </button>
       <button id="btn2" onmousedown="startTone(2)" onmouseup="stopTone()" onclick="guess(2)">
       </button>
+      <br>
       <button id="btn3" onmousedown="startTone(3)" onmouseup="stopTone()" onclick="guess(3)">
       </button>
       <button id="btn4" onmousedown="startTone(4)" onmouseup="stopTone()" onclick="guess(4)">
