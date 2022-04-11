@@ -35,14 +35,15 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [ ] Dynamic input acquired from the user for the amount rounds to be played
+- [ ] Dynamic input acquired from the user for the amount buttons to be used
 
 ## Video Walkthrough (GIF)
 
 If you recorded multiple GIFs for all the implemented features, you can add them here:
-![](https://tinyurl.com/game-win)
-![](https://tinyurl.com/game-timeout)
-![](https://tinyurl.com/game-strikes)
-![](https://tinyurl.com/game-slider)
+![](https://cdn.glitch.global/7076e19d-5584-492e-ad5b-8fea90d1d249/Game%20Win.gif?v=1649721138429)
+![](https://cdn.glitch.global/7076e19d-5584-492e-ad5b-8fea90d1d249/Game%20Lose.gif?v=1649721145485)
+![](https://cdn.glitch.global/7076e19d-5584-492e-ad5b-8fea90d1d249/Game%20Slider%20Input.gif?v=1649721141054)
+![](https://cdn.glitch.global/7076e19d-5584-492e-ad5b-8fea90d1d249/Game%20Button%20Input.gif?v=1649721147484)
 
 ## Reflection Questions
 
