@@ -15,9 +15,35 @@ var x;
 var lost = 0;
 var win = 0;
 
+function makeButtons() {
+  var num = document.getElementById("quantity").value;
+  var btns = "";
+
+  for (let i = 0; i < num; i++) {
+    btns +=
+      '<button id="btn' +
+      i +
+      '" class="btn' +
+      i +
+      '" onmousedown="startTone(' +
+      i +
+      ')" onmouseup="stopTone()" onclick="guess(' +
+      i +
+      ')"></button>';
+  }
+
+  document.getElementById("gameBtnArea").innerHTML = btns;
+}
+
 function slide() {
   var x = document.getElementById("rounds").value;
   document.getElementById("demo").innerHTML = "Rounds: " + x;
+}
+
+function slideBtn() {
+  var x = document.getElementById("quantity").value;
+  document.getElementById("demo2").innerHTML = "Buttons: " + x + " ";
+  makeButtons();
 }
 
 function startGame() {
@@ -43,21 +69,26 @@ function stopGame() {
 
 function makePattern() {
   var num = document.getElementById("rounds").value;
+  var qty = document.getElementById("quantity").value;
   var temp = 0;
   console.log("slider is: " + num);
   for (let i = 0; i < num; i++) {
-    temp = Math.floor(Math.random() * 6) + 1;
+    temp = Math.floor(Math.random() * qty);
     pattern[i] = temp;
   }
 }
 
 const freqMap = {
-  1: 261.6,
-  2: 329.6,
-  3: 392,
-  4: 530,
-  5: 660,
-  6: 790,
+  0: 110.00,
+  1: 138.59,
+  2: 164.81,
+  3: 220.00,
+  4: 277.18,
+  5: 329.63,
+  6: 440.00,
+  7: 554.37,
+  8: 659.25,
+  9: 880.00,
 };
 function playTone(btn, len) {
   o.frequency.value = freqMap[btn];
