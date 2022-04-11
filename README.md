@@ -4,7 +4,7 @@
 
 Submitted by: Ajay Venkatraman
 
-Time spent: 6.5 hours spent in total
+Time spent: 6 hours spent in total
 
 Link to project: https://glitch.com/edit/#!/viridian-jungle-lobster
 
@@ -34,15 +34,15 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app!
+- [ ] Dynamic input acquired from the user for the amount rounds to be played
 
 ## Video Walkthrough (GIF)
 
 If you recorded multiple GIFs for all the implemented features, you can add them here:
-![](gif1-link-here)
-![](gif2-link-here)
-![](gif3-link-here)
-![](gif4-link-here)
+![](https://tinyurl.com/game-win)
+![](https://tinyurl.com/game-timeout)
+![](https://tinyurl.com/game-strikes)
+![](https://tinyurl.com/game-slider)
 
 ## Reflection Questions
 
