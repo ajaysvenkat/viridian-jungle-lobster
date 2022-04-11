@@ -6,7 +6,9 @@ html {
   font-size: 16px;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -15,14 +17,20 @@ body {
   margin: 1rem;
   font-family: sans-serif;
   line-height: 1.5;
-  
-  background-color: dimgray;
-  color: white; 
+
+  background-color: white;
+  color: black;
 }
 
 h1 {
   font-family: oswald;
-  font-size: 35px
+  font-size: 35px;
+}
+#name {
+  background-color: lightgray;
+  p.solid {
+    border-style: solid;
+  }
 }
 
 button {
@@ -30,45 +38,63 @@ button {
   border-radius: 12.5px;
 }
 #gameBtnArea > button {
-  width:200px;
-  height:200px;
-  margin:2px;
-  border-radius:50px
+  width: 200px;
+  height: 200px;
+  margin: 2px;
+  border-radius: 50px;
 }
 #btn1 {
-    background: lightgreen;
+  background: lightgreen;
 }
 #btn2 {
-    background: lightblue;
+  background: lightblue;
 }
 #btn3 {
-    background: pink;
+  background: lightsalmon;
 }
 #btn4 {
-    background: lightyellow;
+  background: lightyellow;
+}
+#btn5 {
+  background: lavender;
+}
+#btn6 {
+  background: pink;
 }
 
-#btn1:active, #btn1.lit {
-    background:lime;
+#btn1:active,
+#btn1.lit {
+  background: lime;
 }
-#btn2:active, #btn2.lit {
-    background:royalblue;
+#btn2:active,
+#btn2.lit {
+  background: royalblue;
 }
-#btn3:active, #btn3.lit {
-    background:indianred;
+#btn3:active,
+#btn3.lit {
+  background: indianred;
 }
-#btn4:active, #btn4.lit {
-    background:yellow;
+#btn4:active,
+#btn4.lit {
+  background: yellow;
+}
+#btn5:active,
+#btn5.lit {
+  background: purple;
+}
+#btn6:active,
+#btn6.lit {
+  background: palevioletred;
 }
 
-.slidecontainer {
+#rounds {
   width: 20%; /* Width of the outside container */
 }
 .slider {
   appearance: none;
   width: 100%; /* Full-width */
   height: 5px; /* Specified height */
-  background: white; /* White background */
+  background: black; /* White background */
   opacity: 1; /* Set transparency (for mouse-over effects on hover) */
   border-radius: 2.5px;
 }
@@ -79,7 +105,7 @@ button {
   appearance: none;
   width: 15px; /* Set a specific slider handle width */
   height: 15px; /* Slider handle height */
-  background: white; /* white background */
+  background: black; /* white background */
   cursor: pointer; /* Cursor on hover */
   border-radius: 7.5px;
 }
