@@ -48,7 +48,7 @@ If you recorded multiple GIFs for all the implemented features, you can add them
 
 1. If you used any outside resources to help complete your submission (websites, books, people, etc) list them here.
    To learn some of the aditional functions that I implemented, I used w3schools.com. For quick help, I used stackoverflow.com.
-   When I had a question about reading and outputing data from the slider, I got help from my father who gave me tips that nudged me in the right direction.
+   When I had a question about reading and outputing data from the slider, I got help from my mentor who gave me tips that nudged me in the right direction.
 
 2. What was a challenge you encountered in creating this submission (be specific)? How did you overcome it? (recommended 200 - 400 words)
    [YOUR ANSWER HERE]

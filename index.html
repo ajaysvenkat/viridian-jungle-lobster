@@ -13,7 +13,7 @@
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
   </head>
-  <body>
+  <body onload="makeButtons()">
     <!-- this is the start of content -->
     <h1 id="name">
       <center>Light It Up</center>
@@ -27,6 +27,17 @@
       </center>
     </p>
     
+    <b><label id="demo2" for="quantity">Buttons: 4 </label
+    ><input
+      type="range"
+      id="quantity"
+      min="3"
+      max="10"
+      value="4"
+      onchange="slideBtn()"
+      class="slider"
+    /></b>
+    <br />
     <b><label id="demo" for="rounds">Rounds: 9</label></b>
     <input
       id="rounds"
@@ -49,47 +60,7 @@
 
     <button id="startBtn" onclick="startGame()">Start</button>
     <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
-
-    <center>
-      <div id="gameBtnArea">
-        <button
-          id="btn1"
-          onmousedown="startTone(1)"
-          onmouseup="stopTone()"
-          onclick="guess(1)"
-        ></button>
-        <button
-          id="btn2"
-          onmousedown="startTone(2)"
-          onmouseup="stopTone()"
-          onclick="guess(2)"
-        ></button>
-        <button
-          id="btn3"
-          onmousedown="startTone(3)"
-          onmouseup="stopTone()"
-          onclick="guess(3)"
-        ></button>
-        <br />
-        <button
-          id="btn4"
-          onmousedown="startTone(4)"
-          onmouseup="stopTone()"
-          onclick="guess(4)"
-        ></button>
-        <button
-          id="btn5"
-          onmousedown="startTone(5)"
-          onmouseup="stopTone()"
-          onclick="guess(5)"
-        ></button>
-        <button
-          id="btn6"
-          onmousedown="startTone(6)"
-          onmouseup="stopTone()"
-          onclick="guess(6)"
-        ></button>
-      </div>
-    </center>
+    
+    <center><div id="gameBtnArea" /></center>
   </body>
 </html>
