@@ -15,47 +15,81 @@
   </head>
   <body>
     <!-- this is the start of content -->
-    <h1>
-      Light It Up
+    <h1 id="name">
+      <center>Light It Up</center>
     </h1>
-    
-    <p>
-      Welcome to the Light It Up Memory Game! <br>
-      All you need to do is repeat the pattern you hear by pressing the 
-      buttons. It's simple!
-    </p>
 
-    <l id= "c1" class="hidden">❌</l>
-    <l id= "c2" class="hidden">❌</l>
-    <l id= "c3" class="hidden">❌</l>
+    <p>
+      <center>
+        Welcome to the Light It Up Memory Game! <br />
+        All you need to do is repeat the pattern you see/hear by pressing the
+        buttons. It's simple!
+      </center>
+    </p>
     
-    <h2 id="time"></h2>
-    
-    <div class="slidecontainer" >
-      <p id="demo">Rounds: 9</p> 
-      <input type="range" min="3" max="15" value="9" class="slider" id="rounds" onchange="slide()">
-    </div>
-    <br>
-    
-    <button id="startBtn" onclick="startGame()">
-      Start
-    </button>
-    <button id="stopBtn" class="hidden" onclick="stopGame()">
-      Stop
-    </button>
-    
-    <div id= "gameBtnArea">
-      <button id="btn1" onmousedown="startTone(1)" onmouseup="stopTone()" onclick="guess(1)">
-      </button>
-      <button id="btn2" onmousedown="startTone(2)" onmouseup="stopTone()" onclick="guess(2)">
-      </button>
-      <br>
-      <button id="btn3" onmousedown="startTone(3)" onmouseup="stopTone()" onclick="guess(3)">
-      </button>
-      <button id="btn4" onmousedown="startTone(4)" onmouseup="stopTone()" onclick="guess(4)">
-      </button>
-    </div>
-    
-    
+    <b><label id="demo" for="rounds">Rounds: 9</label></b>
+    <input
+      id="rounds"
+      type="range"
+      min="3"
+      max="15"
+      value="9"
+      class="slider"
+      onchange="slide()"
+    />
+
+    <center><h2 id="time"></h2></center>
+    <center>
+      <h2>
+        <l id="c1" class="hidden">❌</l>
+        <l id="c2" class="hidden">❌</l>
+        <l id="c3" class="hidden">❌</l>
+      </h2>
+    </center>
+
+    <button id="startBtn" onclick="startGame()">Start</button>
+    <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
+
+    <center>
+      <div id="gameBtnArea">
+        <button
+          id="btn1"
+          onmousedown="startTone(1)"
+          onmouseup="stopTone()"
+          onclick="guess(1)"
+        ></button>
+        <button
+          id="btn2"
+          onmousedown="startTone(2)"
+          onmouseup="stopTone()"
+          onclick="guess(2)"
+        ></button>
+        <button
+          id="btn3"
+          onmousedown="startTone(3)"
+          onmouseup="stopTone()"
+          onclick="guess(3)"
+        ></button>
+        <br />
+        <button
+          id="btn4"
+          onmousedown="startTone(4)"
+          onmouseup="stopTone()"
+          onclick="guess(4)"
+        ></button>
+        <button
+          id="btn5"
+          onmousedown="startTone(5)"
+          onmouseup="stopTone()"
+          onclick="guess(5)"
+        ></button>
+        <button
+          id="btn6"
+          onmousedown="startTone(6)"
+          onmouseup="stopTone()"
+          onclick="guess(6)"
+        ></button>
+      </div>
+    </center>
   </body>
 </html>
