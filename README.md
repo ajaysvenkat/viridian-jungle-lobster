@@ -4,7 +4,7 @@
 
 Submitted by: Ajay Venkatraman
 
-Time spent: 6.5 hours spent in total
+Time spent: 6 hours spent in total
 
 Link to project: https://glitch.com/edit/#!/viridian-jungle-lobster
 
