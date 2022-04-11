@@ -10,15 +10,18 @@ var volume = 1;
 var guessCounter = 0;
 var mistakes = 0;
 var slider = document.getElementById("rounds");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
+var countDown;
+var x;
+var lost=0;
 
 function slide() {
   var x = document.getElementById("rounds").value;
   document.getElementById("demo").innerHTML = "Rounds: " + x;
 }
+
 function startGame(){
     progress = 0;
+    lost=0;
     gamePlaying = true;
     document.getElementById("startBtn").classList.add("hidden");
     document.getElementById("stopBtn").classList.remove("hidden");
@@ -27,9 +30,10 @@ function startGame(){
 }
 function stopGame(){
     //initialize game variables
-    gamePlaying = true;
+    gamePlaying = false;
     document.getElementById("startBtn").classList.remove("hidden");
     document.getElementById("stopBtn").classList.add("hidden");
+    clearInterval(x);
 }
 
 function makePattern(){
@@ -107,11 +111,38 @@ function playClueSequence(){
     delay += clueHoldTime 
     delay += cluePauseTime;
   }
+  if(gamePlaying){
+    countDown=new Date().getTime()+15000;
+    x= setInterval(function down() {
+
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDown - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("time").innerHTML = seconds + "s ";
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("time").innerHTML = 0;
+        loseGame();
+      }
+    }, 1000);
+  }
 }
 
 function loseGame(){
   stopGame();
-  alert("Game Over. Try Again.");
+  clearInterval(x)
+  if(lost==0){
+    alert("Game Over. Try Again.");
+    lost++;
+  }
   mistakes=0;
   document.getElementById("c1").classList.add("hidden");
   document.getElementById("c2").classList.add("hidden");
@@ -119,6 +150,7 @@ function loseGame(){
 }
 function winGame(){
   stopGame();
+  clearInterval(x);
   alert("Congrats! You Win!");
   mistakes=0;
   document.getElementById("c1").classList.add("hidden");
@@ -129,10 +161,12 @@ function winGame(){
 function guess(btn){
   console.log("user guessed: " + btn);
   if(!gamePlaying){
+    clearInterval(x)
     return;
   }
   if(pattern[guessCounter] != btn && mistakes==2){
     document.getElementById("c3").classList.remove("hidden");
+    clearInterval(x);
     loseGame();
   }
   else if(pattern[guessCounter] != btn && mistakes==1){
