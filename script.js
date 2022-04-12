@@ -35,17 +35,20 @@ function makeButtons() {
   document.getElementById("gameBtnArea").innerHTML = btns;
 }
 
+// prints the Round slider's curent value
 function slide() {
   var x = document.getElementById("rounds").value;
   document.getElementById("demo").innerHTML = "Rounds: " + x;
 }
 
+// prints the amount of buttons from the slider
 function slideBtn() {
   var x = document.getElementById("quantity").value;
   document.getElementById("demo2").innerHTML = "Buttons: " + x + " ";
   makeButtons();
 }
 
+// sets all the initial values and starts the game
 function startGame() {
   progress = 0;
   lost = 0;
@@ -59,14 +62,15 @@ function startGame() {
   document.getElementById("c2").classList.add("hidden");
   document.getElementById("c3").classList.add("hidden");
 }
+// stops the game
 function stopGame() {
-  //initialize game variables
   gamePlaying = false;
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
   clearInterval(x);
 }
 
+// creates a random patter based on the amount of rounds and buttons
 function makePattern() {
   var num = document.getElementById("rounds").value;
   var qty = document.getElementById("quantity").value;
@@ -78,6 +82,7 @@ function makePattern() {
   }
 }
 
+// sets the frequency of the buttons to an A Major Arpeggio
 const freqMap = {
   0: 110.00,
   1: 138.59,
@@ -90,6 +95,7 @@ const freqMap = {
   8: 659.25,
   9: 880.00,
 };
+// plays the corresponding tone to the button pressed
 function playTone(btn, len) {
   o.frequency.value = freqMap[btn];
   g.gain.setTargetAtTime(volume, context.currentTime + 0.05, 0.025);
@@ -99,6 +105,7 @@ function playTone(btn, len) {
     stopTone();
   }, len);
 }
+// starts the tone
 function startTone(btn) {
   if (!tonePlaying) {
     context.resume();
@@ -108,6 +115,7 @@ function startTone(btn) {
     tonePlaying = true;
   }
 }
+//stops the tone
 function stopTone() {
   g.gain.setTargetAtTime(0, context.currentTime + 0.05, 0.025);
   tonePlaying = false;
@@ -124,13 +132,16 @@ g.gain.setValueAtTime(0, context.currentTime);
 o.connect(g);
 o.start(0);
 
+// lights up the specified button
 function lightButton(btn) {
   document.getElementById("btn" + btn).classList.add("lit");
 }
+// makes a specific button unlit
 function clearButton(btn) {
   document.getElementById("btn" + btn).classList.remove("lit");
 }
 
+//plays a single clue based on the pattern
 function playSingleClue(btn) {
   if (gamePlaying) {
     lightButton(btn);
@@ -139,6 +150,7 @@ function playSingleClue(btn) {
   }
 }
 
+// plays a string of clues from the pattern based on the progress
 function playClueSequence() {
   context.resume();
   guessCounter = 0;
@@ -150,6 +162,7 @@ function playClueSequence() {
     delay += clueHoldTime;
     delay += cluePauseTime;
   }
+  // sets the timer
   if (gamePlaying) {
     countDown =
       new Date().getTime() +
@@ -177,6 +190,7 @@ function playClueSequence() {
   }
 }
 
+// dictates what should happen if the player loses
 function loseGame() {
   stopGame();
   clearInterval(x);
@@ -186,6 +200,7 @@ function loseGame() {
   }
   mistakes = 0;
 }
+// dictates what should happen if the player wins
 function winGame() {
   stopGame();
   clearInterval(x);
@@ -197,6 +212,7 @@ function winGame() {
   document.getElementById("c3").classList.add("hidden");
 }
 
+// receives the player's guess and determines if it is correct or not
 function guess(btn) {
   console.log("user guessed: " + btn);
   if (!gamePlaying) {
