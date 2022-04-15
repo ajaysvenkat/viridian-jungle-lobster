@@ -6,7 +6,7 @@ var pattern = [];
 var progress = 0;
 var gamePlaying = false;
 var tonePlaying = false;
-var volume = 1;
+var volume = 1.03125;
 var guessCounter = 0;
 var mistakes = 0;
 var slider = document.getElementById("rounds");
@@ -70,7 +70,7 @@ function stopGame() {
   clearInterval(x);
 }
 
-// creates a random patter based on the amount of rounds and buttons
+// creates a random pattern based on the amount of rounds and buttons
 function makePattern() {
   var num = document.getElementById("rounds").value;
   var qty = document.getElementById("quantity").value;
